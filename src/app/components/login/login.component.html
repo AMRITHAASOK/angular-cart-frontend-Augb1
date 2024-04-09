@@ -1,0 +1,49 @@
+<div style="margin-top: 80px; background-color: rgb(255, 234, 0);">
+   <div class="row">
+    <div class="col-6">
+        <img src="https://cdn.dribbble.com/users/471953/screenshots/5274211/recover-abandoned-carts.gif" width="100%" height="630px" alt="">
+    </div>
+    <div class="col-6 p-5">
+        <form [formGroup]="loginForm" class="m-5 p-5 shadow bg-light">
+            <h2 class="text-center">Login Here...</h2>
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input formControlName="email" type="email" id="form1Example1" class="form-control" />
+              <div *ngIf="this.loginForm.get('email')?.errors && this.loginForm.get('email')?.touched" class="text-danger fw-bolder">*Invalid Email</div>      
+                  </div>
+          
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input formControlName="password" type="password" id="form1Example2" class="form-control" />
+              <div *ngIf="this.loginForm.get('password')?.errors && this.loginForm.get('password')?.touched" class="text-danger fw-bolder">*Invalid Password</div>  
+            </div>
+          
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                  <label class="form-check-label" for="form1Example3"> Remember me </label>
+                </div>
+              </div>
+          
+              <div class="col">
+                <!-- Simple link -->
+                <a href="#!">Forgot password?</a>
+              </div>
+            </div>
+          
+            <div class="text-center m-4">
+                <!-- Submit button -->
+            <button (click)="login()" data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </div>
+            
+                <div class="text-center">
+                    <a routerLink="/user/register" >New to here? Register Now!!!</a>
+                </div>
+            
+          </form>
+    </div>
+   </div>
+</div>

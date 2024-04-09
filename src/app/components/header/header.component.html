@@ -1,0 +1,22 @@
+<nav class="navbar position-fixed w-100 top-0  navbar-light bg-body-tertiary">
+    <div class="container-fluid">
+       
+      <a class="navbar-brand" routerLink="/"> <i class="fa-solid fa-cart-plus"></i> Shop N Shop</a>
+      <form class="d-flex input-group w-auto">
+        <input
+          type="search"
+          class="form-control rounded"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="search-addon"
+        />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search fs-2"></i>
+        </span>
+
+        <i routerLink="user/wishlist" class="fa-solid fa-heart text-danger fs-2 me-3"></i>
+        <i routerLink="user/cart"  class="fa-solid fa-cart-plus text-success fs-2 me-3"></i>
+        <i routerLink="user/login"  class="fa-solid fa-user text-black fs-2"></i>
+      </form>
+    </div>
+  </nav>

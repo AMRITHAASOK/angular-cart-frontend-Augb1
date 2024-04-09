@@ -1,0 +1,48 @@
+<div style="margin-top: 80px">
+  <!-- with-product -->
+  <div>
+    <!-- Section-->
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div
+          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+        >
+          <div class="col  mb-5" *ngFor="let product of wishlistArray">
+            <div class="card h-100 shadow">
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                [src]=product.image
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">{{product.title}}</h5>
+                  <!-- Product price-->
+                  ${{product.price}}
+                </div>
+              </div>
+              <!-- Product actions-->
+              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center ">
+                    <button (click)=" deleteWishlistProduct(product.id)" class="btn me-5"><i class="fa-solid fa-trash text-danger fs-3"></i></button>
+                    <button class="btn "><i class="fa-solid fa-cart-plus text-success fs-3"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="text-center" *ngIf="wishlistArray.length==0">
+    <!-- without-product -->
+
+    <img src="https://media3.giphy.com/media/0HhDnlH89djZtRqYoO/giphy.gif?cid=790b761135311dfd544463bae653ca8e857ecc9a6dd60649&rid=giphy.gif&ct=s" alt="">
+    <p>Sorry your wishlist empty</p>
+    <button class="btn btn-dark m-3 mb-5" routerLink="/" >Browse More</button>
+  </div>
+</div>

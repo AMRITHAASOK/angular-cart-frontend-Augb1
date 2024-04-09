@@ -1,0 +1,39 @@
+<div style="margin-top: 80px;">
+      <!-- Header-->
+      <header class="bg-dark py-5" style="background-image: url('https://img.freepik.com/free-psd/horizontal-banner-online-fashion-sale_23-2148585404.jpg?w=1060&t=st=1711432680~exp=1711433280~hmac=3b237f6cde62b872d3ec0a3a86642b3e6390397c9409e22d5fcdae8a89b7fcd4');
+      background-attachment: fixed; background-position: top; height: 400px;">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Shop in style</h1>
+                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+            </div>
+        </div>
+    </header>
+    <!-- Section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div *ngFor="let product of allProducts" class="col mb-5">
+                    <div  class="card shadow h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top"  [src]=product.image  height="300px" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{product.title}}</h5>
+                                <!-- Product price-->
+                                ${{product.price}}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" routerLink="view/{{product.id}}">View Product</a></div>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </section>
+</div>

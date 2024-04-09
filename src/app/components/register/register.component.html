@@ -1,0 +1,52 @@
+<div style="margin-top: 60px; background-color: rgb(255, 234, 0);">
+    <div class="row">
+     <div class="col-6">
+         <img src="https://cdn.dribbble.com/users/471953/screenshots/5274211/recover-abandoned-carts.gif" width="100%" height="730px" alt="">
+     </div>
+     <div class="col-6 p-5">
+         <form [formGroup]="registerForm" class="m-5 p-5 shadow bg-light">
+             <h2 class="text-center mb-4">Register...</h2>
+              <!-- username input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input formControlName="username" placeholder="Username" type="text" id="form1Example3" class="form-control" />
+                <div *ngIf="this.registerForm.get('username')?.errors && this.registerForm.get('username')?.touched" class="text-danger fw-bolder">*Invalid Username</div>
+              </div>
+             <!-- Email input -->
+             <div data-mdb-input-init class="form-outline mb-4">
+               <input formControlName="email"  placeholder="email" type="email" id="form1Example1" class="form-control" />
+               <div *ngIf="this.registerForm.get('email')?.errors && this.registerForm.get('email')?.touched" class="text-danger fw-bolder">*Invalid Email</div>
+             
+              </div>
+           
+             <!-- Password input -->
+             <div data-mdb-input-init class="form-outline mb-4">
+               <input formControlName="password" placeholder="password"  type="password" id="form1Example2" class="form-control" />
+               <div *ngIf="this.registerForm.get('password')?.errors && this.registerForm.get('password')?.touched" class="text-danger fw-bolder">*Invalid Password</div>
+
+             </div>
+           
+             <!-- 2 column grid layout for inline styling -->
+             <div class="row mb-4">
+               <div class="col d-flex justify-content-center">
+                 <!-- Checkbox -->
+                 <div class="form-check">
+                   <input class="form-check-input" type="checkbox" value="" id="form1Example4" checked />
+                   <label class="form-check-label" for="form1Example4"> Remember me </label>
+                 </div>
+               </div>
+           
+               <div class="col">
+                 <!-- Simple link -->
+                 <a routerLink="/user/login">Login here?</a>
+               </div>
+             </div>
+           
+           <div class="text-center">
+              <!-- Submit button -->
+              <button (click)="register()" data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Sign Up</button>
+           </div>
+           </form>
+     </div>
+    </div>
+ </div>
+ 
