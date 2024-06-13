@@ -1,11 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+
   baseUrl = "http://localhost:3000"
+
+  searchTerm=new BehaviorSubject("")//to hold the search term
 
   constructor(private http:HttpClient) { }
 
@@ -48,6 +52,17 @@ export class ApiService {
 
   getCart(){
     return this.http.get(`${this.baseUrl}/get-cart`,this.appendToken())
+  }
+
+  deleteCart(id:any){
+    return this.http.delete(`${this.baseUrl}/delete-cart/${id}`,this.appendToken())
+  }
+
+  incrementCart(id:any){
+    return this.http.get(`${this.baseUrl}/increment-cart/${id}`,this.appendToken())
+  }
+  decrementCart(id:any){
+    return this.http.get(`${this.baseUrl}/decrement-cart/${id}`,this.appendToken())
   }
 
 }

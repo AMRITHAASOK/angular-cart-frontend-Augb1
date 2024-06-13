@@ -14,6 +14,8 @@ import { ViewProductComponent } from './components/view-product/view-product.com
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     WishlistComponent,
     AllProductsComponent,
     ViewProductComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private api:ApiService){}
+
+  search(event:any){ //r ri rin ring 
+    this.api.searchTerm.next(event.target.value)
+    console.log(event.target.value);
+    
+  }
 }

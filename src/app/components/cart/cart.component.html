@@ -1,6 +1,6 @@
 <div style="margin-top: 80px;">
       <!-- with product -->
-      <div class="row">
+      <div class="row" *ngIf="products.length!=0">
          <div class="col-8">
             <!-- table -->
             <table class="table m-4 shadow">
@@ -25,15 +25,15 @@
                    </td>
 
                    <td class="d-flex">
-                    <button class="btn">-</button>
+                    <button  (click)="cartDecrement(product.id)" class="btn">-</button>
                     <input type="text" [value]="product.quantity"
                     readonly class="form-control w-25">
-                    <button class="btn">+</button>
+                    <button (click)="cartIncrement(product.id)" class="btn">+</button>
                    </td>
 
                    <td>{{product.price}}</td>
                    <td class="text-center">
-                     <i class="fa-solid fa-trash text-danger"></i>
+                     <i (click)=" deleteCartProduct(product.id)" class="fa-solid fa-trash text-danger"></i>
                    </td>
                  </tr>
                  
@@ -44,16 +44,47 @@
             <!-- bill -->
             <div class="card text-center p-4 m-5 shadow">
                   <h3>Cart Summary</h3>
-                  <h1>Total : 56$</h1>
-                  <button class="btn btn-success m-3">Check Out</button>
+                  <h1>Total : $ {{totalPrice}}</h1>
+                  <button class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Check Out</button>
             </div>
          </div>
       </div>
        <!-- with out product -->
-       <div class="text-center m-5 p-5">
+       <div *ngIf="products.length==0" class="text-center m-5 p-5">
        
          <img src="https://supershopping.lk/images/home/Cart-empty.gif" alt="">
          <h3 class="m-4">Your cart was empty</h3>
          <button class="btn btn-success" routerLink="/">Add More</button>
        </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Check out Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+       <h5 class="text-center m-3">Enter your details</h5>
+       <input type="text" class="form-control mb-3" placeholder="Name">
+       <input type="text" class="form-control mb-3" placeholder="Phone Number">
+       <input type="text" class="form-control mb-3" placeholder="Address">
+       <h5 class="text-center m-3">Total Price: {{totalPrice}}</h5>
+      </div>
+
+     <button (click)="submit()">Submit</button>
+     <div *ngIf="makepaymentStatus  ">
+      <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+    </div>
+      <div class="modal-footer" >
+       <div *ngIf="buttonShowOrder">
+        <button type="button" class="btn btn-primary" (click)="makepayment()">Make Payment</button>
+       
+       </div>
+      </div>
+    </div>
+  </div>
 </div>

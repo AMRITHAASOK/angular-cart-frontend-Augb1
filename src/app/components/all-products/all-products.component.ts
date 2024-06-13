@@ -10,10 +10,15 @@ export class AllProductsComponent implements OnInit {
 
     allProducts:any[]=[]//to hold all products
 
+    searchkey:string=""
     constructor(private api:ApiService){}
   
     ngOnInit(): void {
       this.getProducts()
+      // this.searchkey=this.api.searchTerm
+      this.api.searchTerm.subscribe((data:any) =>{
+        this.searchkey=data
+      })
     }
 
     getProducts(){

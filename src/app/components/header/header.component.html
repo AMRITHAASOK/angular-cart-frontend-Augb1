@@ -4,6 +4,7 @@
       <a class="navbar-brand" routerLink="/"> <i class="fa-solid fa-cart-plus"></i> Shop N Shop</a>
       <form class="d-flex input-group w-auto">
         <input
+          (keyup)="search($event)"
           type="search"
           class="form-control rounded"
           placeholder="Search"
